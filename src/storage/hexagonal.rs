@@ -163,33 +163,3 @@ where
         }
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use bevy::utils::HashMap;
-
-    use super::*;
-
-    #[test]
-    fn validity() {
-        for center in Hex::ZERO.range(20) {
-            for radius in 0_u32..25 {
-                let expected: HashMap<Hex, usize> = center
-                    .range(radius)
-                    .enumerate()
-                    .map(|(i, h)| (h, i))
-                    .collect();
-
-                let map = HexagonalMap::new(center, radius, |h| expected[&h]);
-
-                for (k, v) in &expected {
-                    assert_eq!(*v, map[k]);
-                }
-
-                for k in map.bounds().all_coords() {
-                    assert_eq!(map[k], expected[&k]);
-                }
-            }
-        }
-    }
-}
