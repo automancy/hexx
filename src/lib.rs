@@ -189,36 +189,6 @@
 //! }
 //! ```
 //!
-//! An other usage could be to draw an infinite hex grid, with different
-//! resolutions displayed, dynamically changing according to user zoom level.
-//!
-//! ## Usage in [Bevy](https://bevyengine.org/)
-//!
-//! If you want to generate 3D hexagonal mesh and use it in
-//! [bevy](bevyengine.org) you may do it this way:
-//!
-//!```rust
-//! use bevy::{
-//!     prelude::Mesh,
-//!     render::{
-//!         mesh::Indices, render_asset::RenderAssetUsages, render_resource::PrimitiveTopology,
-//!     },
-//! };
-//! use hexx::MeshInfo;
-//!
-//! pub fn hexagonal_plane(mesh_info: MeshInfo) -> Mesh {
-//!     Mesh::new(
-//!         PrimitiveTopology::TriangleList,
-//!         // Means you won't edit the mesh afterwards, check bevy docs for more information
-//!         RenderAssetUsages::RENDER_WORLD,
-//!     )
-//!     .with_inserted_attribute(Mesh::ATTRIBUTE_POSITION, mesh_info.vertices)
-//!     .with_inserted_attribute(Mesh::ATTRIBUTE_NORMAL, mesh_info.normals)
-//!     .with_inserted_attribute(Mesh::ATTRIBUTE_UV_0, mesh_info.uvs)
-//!     .with_inserted_indices(Indices::U16(mesh_info.indices))
-//! }
-//! ```
-//!
 //! The [`MeshInfo`] can be produced from [`PlaneMeshBuilder`] or
 //! [`ColumnMeshBuilder`]
 #![forbid(unsafe_code)]

@@ -183,33 +183,3 @@ where
             .finish()
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use bevy::utils::HashMap;
-
-    use crate::shapes::rombus;
-
-    use super::*;
-
-    #[test]
-    fn validity() {
-        for origin in Hex::ZERO.range(20) {
-            for rows in 0_u32..25 {
-                for columns in 0_u32..25 {
-                    let expected: HashMap<Hex, usize> = rombus(origin, rows, columns)
-                        .enumerate()
-                        .map(|(i, h)| (h, i))
-                        .collect();
-
-                    let map = RombusMap::new(origin, rows, columns, |h| expected[&h]);
-
-                    assert_eq!(map.len(), (rows * columns) as usize);
-                    for (k, v) in &expected {
-                        assert_eq!(*v, map[k]);
-                    }
-                }
-            }
-        }
-    }
-}
