@@ -25,7 +25,7 @@ packed = []
 serde = ["dep:serde", "glam/serde"]
 
 [dependencies]
-glam = "0.28.0"
+glam = "0.29.0"
 
 [dependencies.serde]
 version = "1"

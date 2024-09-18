@@ -20,7 +20,7 @@ pub(crate) const BASE_FACING: Vec3 = Vec3::Y;
 /// used to create an insetted face on either hexagonal planes or quads
 #[derive(Debug, Copy, Clone, Default)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
-#[cfg_attr(feature = "bevy_reflect", derive(bevy_reflect::Reflect))]
+
 pub struct InsetOptions {
     /// If set to `true` the original downscaled face will be kept
     pub keep_inner_face: bool,
@@ -33,7 +33,7 @@ pub struct InsetOptions {
 /// [`InsetOptions`] mode, defining the inset scaling behaviour
 #[derive(Debug, Copy, Clone, Default)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
-#[cfg_attr(feature = "bevy_reflect", derive(bevy_reflect::Reflect))]
+
 pub enum InsetScaleMode {
     #[default]
     /// Each inset vertex position will be at a scale of the original one
@@ -46,7 +46,7 @@ pub enum InsetScaleMode {
 
 #[derive(Debug, Clone, Default)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
-#[cfg_attr(feature = "bevy_reflect", derive(bevy_reflect::Reflect))]
+
 /// Hexagonal mesh information.
 ///
 /// # Usage

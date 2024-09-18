@@ -36,7 +36,7 @@ use crate::{Hex, HexLayout, InsetOptions, PlaneMeshBuilder, UVOptions};
 ///
 /// Are executed in that order, or **SRT**
 #[derive(Debug, Clone)]
-#[cfg_attr(feature = "bevy_reflect", derive(bevy_reflect::Reflect))]
+
 pub struct ColumnMeshBuilder<'l> {
     /// The hexagonal layout, used to compute vertex positions
     pub layout: &'l HexLayout,

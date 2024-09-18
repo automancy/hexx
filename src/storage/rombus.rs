@@ -21,7 +21,7 @@ use crate::Hex;
 ///
 /// [`HashMap`]: std::collections::HashMap
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
-#[cfg_attr(feature = "bevy_reflect", derive(bevy_reflect::Reflect))]
+
 pub struct RombusMap<T> {
     inner: Vec<T>,
     origin: Hex,

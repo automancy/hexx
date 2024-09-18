@@ -68,7 +68,6 @@ use std::{f32::consts::TAU, fmt::Debug};
 #[derive(Clone, Copy, PartialEq, Eq, Default)]
 #[cfg_attr(not(target_arch = "spirv"), derive(Hash))]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
-#[cfg_attr(feature = "bevy_reflect", derive(bevy_reflect::Reflect))]
 #[repr(transparent)]
 #[doc(alias = "Direction")]
 pub struct EdgeDirection(pub(crate) u8);
