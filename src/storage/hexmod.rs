@@ -208,10 +208,8 @@ where
 
 #[cfg(test)]
 mod tests {
-    use bevy::platform::collections::HashSet;
-
     use super::*;
-    use std::collections::HashMap;
+    use std::collections::{HashMap, HashSet};
 
     #[test]
     fn validity() {
