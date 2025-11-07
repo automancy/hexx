@@ -63,7 +63,6 @@ use std::{
 #[cfg_attr(not(target_arch = "spirv"), derive(Hash))]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(feature = "packed", repr(C))]
-#[cfg_attr(feature = "bevy_reflect", derive(bevy_reflect::Reflect))]
 pub struct Hex {
     /// `x` axial coordinate (sometimes called `q` or `i`)
     pub x: i32,

@@ -27,7 +27,6 @@ use super::HexStore;
 ///
 /// [`HashMap`]: std::collections::HashMap
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
-#[cfg_attr(feature = "bevy_reflect", derive(bevy_reflect::Reflect))]
 pub struct HexagonalMap<T> {
     inner: Vec<Vec<T>>,
     meta: HexagonalMapMetadata,
@@ -35,7 +34,6 @@ pub struct HexagonalMap<T> {
 
 #[derive(Debug, Clone, Copy)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
-#[cfg_attr(feature = "bevy_reflect", derive(bevy_reflect::Reflect))]
 struct HexagonalMapMetadata {
     bounds: HexBounds,
 }
@@ -217,9 +215,6 @@ where
 #[cfg(test)]
 mod tests {
     use super::*;
-    #[cfg(feature = "bevy_platform")]
-    use bevy_platform::collections::HashMap;
-    #[cfg(not(feature = "bevy_platform"))]
     use std::collections::HashMap;
 
     #[test]

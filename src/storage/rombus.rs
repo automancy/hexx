@@ -27,7 +27,6 @@ use super::HexStore;
 ///
 /// [`HashMap`]: std::collections::HashMap
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
-#[cfg_attr(feature = "bevy_reflect", derive(bevy_reflect::Reflect))]
 pub struct RombusMap<T> {
     inner: Vec<T>,
     meta: RombusMetadata,
@@ -35,7 +34,6 @@ pub struct RombusMap<T> {
 
 #[derive(Debug, Clone, Copy)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
-#[cfg_attr(feature = "bevy_reflect", derive(bevy_reflect::Reflect))]
 struct RombusMetadata {
     origin: Hex,
     rows: u32,
@@ -208,9 +206,6 @@ where
 #[cfg(test)]
 mod tests {
     use crate::shapes::rombus;
-    #[cfg(feature = "bevy_platform")]
-    use bevy_platform::collections::HashMap;
-    #[cfg(not(feature = "bevy_platform"))]
     use std::collections::HashMap;
 
     use super::*;

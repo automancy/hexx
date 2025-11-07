@@ -5,7 +5,7 @@ edition = "2024"
 authors = ["Felix de Maneville <felix.maneville@gmail.com>"]
 description = "Hexagonal utilities"
 license = "Apache-2.0"
-keywords = ["hexagon", "bestagon", "bevy", "geometry"]
+keywords = ["hexagon", "bestagon", "geometry"]
 categories = ["game-development", "mathematics", "graphics", "data-structures"]
 repository = "https://github.com/ManevilleF/hexx"
 exclude = [".github"]
@@ -26,12 +26,6 @@ grid = []
 packed = []
 # serde compatibility
 serde = ["dep:serde", "glam/serde"]
-# Adds support for the Bevy game engine
-bevy = ["bevy_reflect", "bevy_platform"]
-# Adds Bevy Reflection support
-bevy_reflect = ["dep:bevy_reflect"]
-# Adds Bevy Platform support
-bevy_platform = ["dep:bevy_platform"]
 
 [dependencies]
 glam = "0.30"
@@ -42,133 +36,18 @@ default-features = false
 features = ["derive"]
 optional = true
 
-[dependencies.bevy_reflect]
-version = "0.17"
-default-features = false
-features = ["glam"]
-optional = true
-
-[dependencies.bevy_platform]
-version = "0.17"
-optional = true
-
-# For lib.rs doctests and examples
-[dev-dependencies.bevy]
-version = "0.17"
-features = [
-    "bevy_asset",
-    "bevy_core_pipeline",
-    "bevy_gizmos",
-    "bevy_log",
-    "bevy_pbr",
-    "bevy_picking",
-    "bevy_render",
-    "bevy_sprite",
-    "bevy_sprite_render",
-    "bevy_text",
-    "bevy_window",
-    "bevy_winit",
-    "default_font",
-    "multi_threaded",
-    "png",
-    "tonemapping_luts",
-    "x11",
-]
-default-features = false
-
 [dev-dependencies.criterion]
 version = "0.5"
 features = ["html_reports"]
 
 [dev-dependencies]
 rand = "0.9"
-bevy-inspector-egui = "0.34"
-bevy_egui = "0.37"
 approx = "0.5"
 
 [lints.rust]
 unexpected_cfgs = { level = "warn", check-cfg = [
     'cfg(target_arch, values("spirv"))',
 ] }
-
-[[example]]
-name = "hex_grid"
-path = "examples/hex_grid.rs"
-required-features = ["bevy_platform"]
-
-[[example]]
-name = "hex_area"
-path = "examples/hex_area.rs"
-required-features = ["bevy_platform"]
-
-[[example]]
-name = "scroll_map"
-path = "examples/scroll_map.rs"
-required-features = ["bevy_platform"]
-
-[[example]]
-name = "wrap_map"
-path = "examples/wrap_map.rs"
-required-features = ["bevy_platform"]
-
-[[example]]
-name = "a_star"
-path = "examples/a_star.rs"
-required-features = ["bevy_platform"]
-
-[[example]]
-name = "field_of_view"
-path = "examples/field_of_view.rs"
-required-features = ["bevy_platform"]
-
-[[example]]
-name = "field_of_movement"
-path = "examples/field_of_movement.rs"
-required-features = ["bevy_platform"]
-
-[[example]]
-name = "3d_columns"
-path = "examples/3d_columns.rs"
-required-features = ["bevy_platform"]
-
-[[example]]
-name = "3d_picking"
-path = "examples/3d_picking.rs"
-required-features = ["bevy_platform"]
-
-[[example]]
-name = "mesh_builder"
-path = "examples/mesh_builder.rs"
-required-features = ["bevy_reflect"]
-
-[[example]]
-name = "heightmap_builder"
-path = "examples/heightmap_builder.rs"
-required-features = ["bevy_reflect"]
-
-[[example]]
-name = "chunks"
-path = "examples/chunks.rs"
-
-[[example]]
-name = "resolutions"
-path = "examples/resolution_grid.rs"
-required-features = ["bevy_platform", "bevy_reflect"]
-
-[[example]]
-name = "merged_columns"
-path = "examples/merged_columns.rs"
-required-features = ["bevy_reflect"]
-
-[[example]]
-name = "sprite_sheet"
-path = "examples/sprite_sheet.rs"
-required-features = ["bevy_platform"]
-
-[[example]]
-name = "shapes"
-path = "examples/shapes.rs"
-required-features = ["bevy_reflect"]
 
 [[bench]]
 name = "length"
@@ -185,11 +64,6 @@ harness = false
 [[bench]]
 name = "rings"
 harness = false
-
-[[bench]]
-name = "storage"
-harness = false
-required-features = ["bevy_platform"]
 
 [profile.dev]
 opt-level = 1

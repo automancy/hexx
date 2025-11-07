@@ -56,7 +56,6 @@ use glam::Vec2;
 /// `HexLayout::rect_size()`
 #[derive(Debug, Clone)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
-#[cfg_attr(feature = "bevy_reflect", derive(bevy_reflect::Reflect))]
 pub struct HexLayout {
     /// The hexagonal orientation of the layout (usually "flat" or "pointy")
     pub orientation: HexOrientation,

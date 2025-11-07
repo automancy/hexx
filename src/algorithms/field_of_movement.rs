@@ -1,7 +1,4 @@
 use crate::Hex;
-#[cfg(feature = "bevy_platform")]
-use bevy_platform::collections::{HashMap, HashSet};
-#[cfg(not(feature = "bevy_platform"))]
 use std::collections::{HashMap, HashSet};
 
 /// Computes a field of movement around `coord` given a `budget`

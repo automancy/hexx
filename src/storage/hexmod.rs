@@ -26,7 +26,6 @@ use super::HexStore;
 /// [`HashMap`]: std::collections::HashMap
 /// [hexmod]: https://observablehq.com/@sanderevers/hexmod-representation
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
-#[cfg_attr(feature = "bevy_reflect", derive(bevy_reflect::Reflect))]
 pub struct HexModMap<T> {
     inner: Vec<T>,
     meta: HexModMapMetadata,
@@ -34,7 +33,6 @@ pub struct HexModMap<T> {
 
 #[derive(Debug, Clone, Copy)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
-#[cfg_attr(feature = "bevy_reflect", derive(bevy_reflect::Reflect))]
 struct HexModMapMetadata {
     bounds: HexBounds,
 }
@@ -208,10 +206,8 @@ where
 
 #[cfg(test)]
 mod tests {
-    use bevy::platform::collections::HashSet;
-
     use super::*;
-    use std::collections::HashMap;
+    use std::collections::{HashMap, HashSet};
 
     #[test]
     fn validity() {
